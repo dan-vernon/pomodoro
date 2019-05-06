@@ -8,6 +8,11 @@ import App from './App';
 
 
 describe('Pomodoro app', () => {
+  test('User Story #1: I can see an element with id="break-label" that contains a string (e.g. "Break Length").', () => {
+    const {getByTestId} = render(<App />)
+    expect(getByTestId('break-label')).toBeTruthy()
+    expect(getByTestId('break-label')).not.toBeEmpty()
+  })
 
 
   // test('User Story #3: I can see two clickable elements with corresponding IDs: id="break-decrement" and id="session-decrement".', () => {})
