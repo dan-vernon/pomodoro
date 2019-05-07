@@ -72,18 +72,30 @@ describe('Pomodoro app', () => {
 
   // test('User Story #11: When I click the element with the id of reset, any running timer should be stopped, the value within id="break-length" should return to 5, the value within id="session-length" should return to 25, and the element with id="time-left" should reset to its default state.', () => {})
   //
-  // test('User Story #12: When I click the element with the id of break-decrement, the value within id="break-length" decrements by a value of 1, and I can see the updated value.', () => {})
-  //
-  // test('User Story #13: When I click the element with the id of break-increment, the value within id="break-length" increments by a value of 1, and I can see the updated value.', () => {})
-  //
-  // test('User Story #14: When I click the element with the id of session-decrement, the value within id="session-length" decrements by a value of 1, and I can see the updated value.', () => {})
-  //
-  // test('User Story #15: When I click the element with the id of session-increment, the value within id="session-length" increments by a value of 1, and I can see the updated value.', () => {})
-  //
-  // test('User Story #16: I should not be able to set a session or break length to <= 0.', () => {})
-  //
-  // test('User Story #17: I should not be able to set a session or break length to > 60.', () => {})
-  //
+  test('User Story #12: When I click the element with the id of break-decrement, the value within id="break-length" decrements by a value of 1, and I can see the updated value.', () => {
+    const {getByTestId} = render(<App />)
+    fireEvent.click(getByTestId('break-increment'))
+    expect(getByTestId('break-length')).toHaveTextContent('6:00')
+})
+
+  test('User Story #13: When I click the element with the id of break-increment, the value within id="break-length" increments by a value of 1, and I can see the updated value.', () => {
+    const {getByTestId} = render(<App />)
+    fireEvent.click(getByTestId('break-decrement'))
+    expect(getByTestId('break-length')).toHaveTextContent('4:00')
+})
+
+  test('User Story #14: When I click the element with the id of session-decrement, the value within id="session-length" decrements by a value of 1, and I can see the updated value.', () => {
+    const {getByTestId} = render(<App />)
+    fireEvent.click(getByTestId('session-increment'))
+    expect(getByTestId('session-length')).toHaveTextContent('26:00')
+})
+
+  test('User Story #15: When I click the element with the id of session-increment, the value within id="session-length" increments by a value of 1, and I can see the updated value.', () => {
+    const {getByTestId} = render(<App />)
+    fireEvent.click(getByTestId('session-decrement'))
+    expect(getByTestId('session-length')).toHaveTextContent('24:00')
+})
+
   // test('User Story #18: When I first click the element with id="start_stop", the timer should begin running from the value currently displayed in id="session-length", even if the value has been incremented or decremented from the original value of 25.', () => {})
   //
   // test('User Story #19: If the timer is running, the element with the id of time-left should display the remaining time in mm:ss format (decrementing by a value of 1 and updating the display every 1000ms).', () => {})
