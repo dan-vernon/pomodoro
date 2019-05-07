@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
-export const TimeButton = (props) => {
+export default (props) => {
   return (
-    <div className="time-buttons">
+    <div className="buttons-container time-buttons">
       <Button variant="success" data-testid={`${props.period}-increment`}>
       +
       </Button>
