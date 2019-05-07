@@ -3,9 +3,10 @@ import './App.css';
 import { Col, Container, Row } from 'react-bootstrap';
 
 
-import {Period} from './components/period.js';
-import {TimeButton} from './components/time_button.js';
-import Timer from './components/timer.js';
+import Period from './components/period';
+import TimeButtons from './components/time_buttons';
+import ControlButtons from './components/control_buttons';
+import Timer from './components/timer';
 
 function App() {
   return(
