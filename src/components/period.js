@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Period = (props) => {
+export default (props) => {
   return (
     <div>
       <div data-testid={`${props.name}-label`}>
