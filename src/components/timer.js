@@ -5,7 +5,7 @@ class Timer extends React.Component {
   super(props);
   this.state = {
     timeLeft: this.props.timeLeft,
-    running: false
+    running: this.props.running,
   };
   }
   render() {
