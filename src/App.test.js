@@ -19,16 +19,35 @@ describe('Pomodoro app', () => {
     expect(getByTestId('session-label')).toBeVisible()
     expect(getByTestId('session-label')).not.toBeEmpty()
   })
+
+  test('User Story #3: I can see two clickable elements with corresponding IDs: id="break-decrement" and id="session-decrement".', () => {
+  const {getByTestId} = render(<App />)
+  expect(getByTestId('break-decrement')).toBeVisible()
+  expect(getByTestId('session-decrement')).toBeVisible()
+  fireEvent.click(getByTestId('break-decrement'))
+  fireEvent.click(getByTestId('session-decrement'))
+})
+
+  test('User Story #4: I can see two clickable elements with corresponding IDs: id="break-increment" and id="session-increment".', () => {
+  const {getByTestId} = render(<App />)
+  expect(getByTestId('break-increment')).toBeVisible()
+  expect(getByTestId('session-increment')).toBeVisible()
+  fireEvent.click(getByTestId('break-increment'))
+  fireEvent.click(getByTestId('session-increment'))
+})
+
+  test('User Story #5: I can see an element with a corresponding id="break-length", which by default (on load) displays a value of 5.', () => {
+    const {getByTestId} = render(<App />)
+    expect(getByTestId('break-length')).toBeVisible()
+    expect(getByTestId('break-length')).toHaveTextContent('5')
   })
 
-  // test('User Story #3: I can see two clickable elements with corresponding IDs: id="break-decrement" and id="session-decrement".', () => {})
-  //
-  // test('User Story #4: I can see two clickable elements with corresponding IDs: id="break-increment" and id="session-increment".', () => {})
-  //
-  // test('User Story #5: I can see an element with a corresponding id="break-length", which by default (on load) displays a value of 5.', () => {})
-  //
-  // test('User Story #6: I can see an element with a corresponding id="session-length", which by default displays a value of 25.', () => {})
-  //
+  test('User Story #6: I can see an element with a corresponding id="session-length", which by default displays a value of 25.', () => {
+    const {getByTestId} = render(<App />)
+    expect(getByTestId('session-length')).toBeVisible()
+    expect(getByTestId('session-length')).toHaveTextContent('25')
+  })
+
   // test('User Story #7: I can see an element with a corresponding id="timer-label", that contains a string indicating a session is initialized (e.g. "Session").', () => {})
   //
   // test('User Story #8: I can see an element with corresponding id="time-left". NOTE: Paused or running, the value in this field should always be displayed in mm:ss format (i.e. 25:00).', () => {})
