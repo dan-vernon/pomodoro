@@ -11,11 +11,20 @@ import Timer from './components/timer';
 function App() {
   return(
     <Container >
-      <Period name="break" length={5} />
-      <TimeButton period="break" />
-      <Period name="session" length={25} />
-      <TimeButton period="session" />
-      <Timer timeLeft={2500} />
+      <Row>
+        <Period name="break" length={5} />
+        <TimeButtons period="break" />
+      </Row>
+      <Row>
+        <Period name="session" length={25} />
+        <TimeButtons period="session" />
+      </Row>
+      <Row>
+        <Timer timeLeft={2500} />
+      </Row>
+      <Row>
+        <ControlButtons />
+      </Row>
     </Container>
   );
 }
