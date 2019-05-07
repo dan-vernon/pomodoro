@@ -9,7 +9,7 @@ class Timer extends React.Component {
   };
   }
   render() {
-    const hours = Math.floor(this.state.timeLeft / 60)
+    const minutes = Math.floor(this.state.timeLeft / 60)
     const seconds = this.state.timeLeft % 60 < 10 ? `0${this.state.timeLeft % 60}` : this.state.timeLeft  % 60
     return (
       <div>
@@ -17,7 +17,7 @@ class Timer extends React.Component {
           Time remaining
         </div>
         <div data-testid="time-left">
-          {hours}:{seconds}
+          {minutes}:{seconds}
         </div>
       </div>
     )
