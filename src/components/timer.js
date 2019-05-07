@@ -9,14 +9,15 @@ class Timer extends React.Component {
   };
   }
   render() {
+    const hours = Math.floor(this.state.timeLeft / 60)
     const seconds = this.state.timeLeft % 60 < 10 ? `0${this.state.timeLeft % 60}` : this.state.timeLeft  % 60
     return (
       <div>
         <div data-testid="timer-label">
-          Session initialised
+          Time remaining
         </div>
         <div data-testid="time-left">
-          {this.state.timeLeft / 60}:{seconds}
+          {hours}:{seconds}
         </div>
       </div>
     )

@@ -51,7 +51,7 @@ describe('Pomodoro app', () => {
   test('User Story #7: I can see an element with a corresponding id="timer-label", that contains a string indicating a session is initialized (e.g. "Session").', () => {
     const {getByTestId} = render(<App />)
     expect(getByTestId('timer-label')).toBeVisible()
-    expect(getByTestId('timer-label')).toHaveTextContent('Session')
+    expect(getByTestId('timer-label')).toHaveTextContent('Time')
   })
 
   test('User Story #8: I can see an element with corresponding id="time-left". NOTE: Paused or running, the value in this field should always be displayed in mm:ss format (i.e. 25:00).', () => {
