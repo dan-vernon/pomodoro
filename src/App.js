@@ -4,8 +4,11 @@ import './App.css';
 
 function App() {
   return(
-    <div data-testid="break-label">
-      Content
+    <div className="container">
+      <Period name="break" length={5} />
+      <Period name="session" length={25} />
+      <TimeButton period="break" />
+      <TimeButton period="session" />
     </div>
   );
 }
