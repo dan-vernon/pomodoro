@@ -12,3 +12,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.time-buttons > * {
+  margin: 16px;
+  width: 64px;
+  border-radius: 9999px;
+  font-size: 2em
+}
