@@ -10,7 +10,7 @@ import App from './App';
 describe('Pomodoro app', () => {
   test('User Story #1: I can see an element with id="break-label" that contains a string (e.g. "Break Length").', () => {
     const {getByTestId} = render(<App />)
-    expect(getByTestId('break-label')).toBeTruthy()
+    expect(getByTestId('break-label')).toBeVisible()
     expect(getByTestId('break-label')).not.toBeEmpty()
   })
 
