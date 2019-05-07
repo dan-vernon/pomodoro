@@ -3,6 +3,7 @@ import './App.css';
 
 import {Period} from './components/period.js';
 import {TimeButton} from './components/time_button.js';
+import Timer from './components/timer.js';
 
 function App() {
   return(
@@ -11,6 +12,7 @@ function App() {
       <Period name="session" length={25} />
       <TimeButton period="break" />
       <TimeButton period="session" />
+      <Timer timeLeft={1500} />
     </div>
   );
 }
