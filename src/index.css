@@ -13,9 +13,13 @@ code {
     monospace;
 }
 
-.time-buttons > * {
+.buttons-container > * {
   margin: 16px;
+  font-size: 2em
+}
+
+
+.time-buttons > * {
   width: 64px;
   border-radius: 9999px;
-  font-size: 2em
 }
