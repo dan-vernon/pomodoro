@@ -16,8 +16,9 @@ describe('Pomodoro app', () => {
 
   test('User Story #2: I can see an element with id="session-label" that contains a string (e.g. "Session Length").', () => {
     const {getByTestId} = render(<App />)
-    expect(getByTestId('session-label').toBeVisible)
-    expect(getByTestId('session-label').not.toBeEmpty)
+    expect(getByTestId('session-label')).toBeVisible()
+    expect(getByTestId('session-label')).not.toBeEmpty()
+  })
   })
 
   // test('User Story #3: I can see two clickable elements with corresponding IDs: id="break-decrement" and id="session-decrement".', () => {})
