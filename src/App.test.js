@@ -96,6 +96,30 @@ describe('Pomodoro app', () => {
     expect(getByTestId('session-length')).toHaveTextContent('24:00')
 })
 
+  test('User Story #16: I should not be able to set a session or break length to <= 0.', () => {
+    const {getByTestId} = render(<App />)
+    let i = 0
+    while (i < 30) {
+      fireEvent.click(getByTestId('break-decrement'))
+      fireEvent.click(getByTestId('session-decrement'))
+      i++
+    }
+    expect(getByTestId('break-length')).toHaveTextContent('0:00')
+    expect(getByTestId('session-length')).toHaveTextContent('0:00')
+})
+
+  test('User Story #17: I should not be able to set a session or break length to > 60.', () => {
+    const {getByTestId} = render(<App />)
+    let i = 0
+    while (i < 60) {
+      fireEvent.click(getByTestId('break-increment'))
+      fireEvent.click(getByTestId('session-increment'))
+      i++
+    }
+    expect(getByTestId('break-length')).toHaveTextContent('60:00')
+    expect(getByTestId('session-length')).toHaveTextContent('60:00')
+})
+
   // test('User Story #18: When I first click the element with id="start_stop", the timer should begin running from the value currently displayed in id="session-length", even if the value has been incremented or decremented from the original value of 25.', () => {})
   //
   // test('User Story #19: If the timer is running, the element with the id of time-left should display the remaining time in mm:ss format (decrementing by a value of 1 and updating the display every 1000ms).', () => {})
