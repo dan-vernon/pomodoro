@@ -60,10 +60,16 @@ describe('Pomodoro app', () => {
     expect(getByTestId('time-left')).toHaveTextContent(/\d+:\d{2}/)
   })
 
-  // test('User Story #9: I can see a clickable element with a corresponding id="start_stop".', () => {})
-  //
-  // test('User Story #10: I can see a clickable element with a corresponding id="reset".', () => {})
-  //
+  test('User Story #9: I can see a clickable element with a corresponding id="start_stop".', () => {
+    const {getByTestId} = render(<App />)
+    expect(getByTestId('start_stop')).toBeVisible()
+})
+
+  test('User Story #10: I can see a clickable element with a corresponding id="reset".', () => {
+    const {getByTestId} = render(<App />)
+    expect(getByTestId('reset')).toBeVisible()
+})
+
   // test('User Story #11: When I click the element with the id of reset, any running timer should be stopped, the value within id="break-length" should return to 5, the value within id="session-length" should return to 25, and the element with id="time-left" should reset to its default state.', () => {})
   //
   // test('User Story #12: When I click the element with the id of break-decrement, the value within id="break-length" decrements by a value of 1, and I can see the updated value.', () => {})

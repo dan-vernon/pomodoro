@@ -4,10 +4,10 @@ import { Button } from 'react-bootstrap';
 export default (props) => {
   return (
     <div className="buttons-container">
-      <Button variant="primary" data-testid={`${props.period}-increment`}>
+      <Button variant="primary" data-testid="start_stop">
       Start/Stop
       </Button>
-      <Button variant="secondary" data-testid={`${props.period}-decrement`}>
+      <Button variant="secondary" data-testid="reset">
       Reset
       </Button>
     </div>
