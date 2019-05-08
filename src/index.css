@@ -6,6 +6,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: block;
+  text-align: center;
+  justify-content: center;
+}
+.container {
+  padding-top: 32px;
 }
 
 code {
@@ -15,11 +21,17 @@ code {
 
 .buttons-container > * {
   margin: 8px;
-  font-size: 1rem
+  font-size: 1.2rem
 }
 
 
 .time-buttons > * {
   min-width: 48px;
   border-radius: 4px;
+}
+
+.timer {
+  font-size: 2em;
+  margin: 0 auto;
+  min-width: 12em;
 }
