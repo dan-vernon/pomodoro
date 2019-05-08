@@ -144,13 +144,40 @@ describe('Pomodoro app', () => {
       fireEvent.click(getByTestId('start_stop'))
       expect(getByTestId('time-left')).toHaveTextContent('26:59')
   })
-  //
-  // test('User Story #19: If the timer is running, the element with the id of time-left should display the remaining time in mm:ss format (decrementing by a value of 1 and updating the display every 1000ms).', () => {})
-  //
-  // test('User Story #20: If the timer is running and I click the element with id="start_stop", the countdown should pause.', () => {})
-  //
-  // test('User Story #21: If the timer is paused and I click the element with id="start_stop", the countdown should resume running from the point at which it was paused.', () => {})
-  //
+
+  test('User Story #19: If the timer is running, the element with the id of time-left should display the remaining time in mm:ss format (decrementing by a value of 1 and updating the display every 1000ms).', () => {
+    const {getByTestId} = render(<App />)
+    fireEvent.click(getByTestId('start_stop'))
+    act(() => {jest.advanceTimersByTime(1000)});
+    expect(getByTestId('time-left')).toHaveTextContent('24:59')
+    act(() => {jest.advanceTimersByTime(1000)});
+    expect(getByTestId('time-left')).toHaveTextContent('24:58')
+    act(() => {jest.advanceTimersByTime(1000)});
+    expect(getByTestId('time-left')).toHaveTextContent('24:57')
+  })
+
+  test('User Story #20: If the timer is running and I click the element with id="start_stop", the countdown should pause.', () => {
+    const {getByTestId} = render(<App />)
+    fireEvent.click(getByTestId('start_stop'))
+    act(() => {jest.advanceTimersByTime(1000)});
+    fireEvent.click(getByTestId('start_stop'))
+    expect(getByTestId('time-left')).toHaveTextContent('24:59')
+    act(() => {jest.advanceTimersByTime(1000)});
+    expect(getByTestId('time-left')).toHaveTextContent('24:59')
+  })
+
+  test('User Story #21: If the timer is paused and I click the element with id="start_stop", the countdown should resume running from the point at which it was paused.', () => {
+    const {getByTestId} = render(<App />)
+    fireEvent.click(getByTestId('start_stop'))
+    act(() => {jest.advanceTimersByTime(1000)});
+    expect(getByTestId('time-left')).toHaveTextContent('24:59')
+    act(() => {jest.advanceTimersByTime(1000)});
+    expect(getByTestId('time-left')).toHaveTextContent('24:58')
+    fireEvent.click(getByTestId('start_stop'))
+    act(() => {jest.advanceTimersByTime(1000)});
+    expect(getByTestId('time-left')).toHaveTextContent('24:58')
+  })
+
   // test('User Story #22: When a session countdown reaches zero (NOTE: timer MUST reach 00:00), and a new countdown begins, the element with the id of timer-label should display a string indicating a break has begun.', () => {})
   //
   // test('User Story #23: When a session countdown reaches zero (NOTE: timer MUST reach 00:00), a new break countdown should begin, counting down from the value currently displayed in the id="break-length" element.', () => {})
