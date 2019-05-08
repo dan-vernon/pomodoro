@@ -9,6 +9,7 @@ import App from './App';
 jest.useFakeTimers()
 
 describe('Pomodoro app', () => {
+
   test('User Story #1: I can see an element with id="break-label" that contains a string (e.g. "Break Length").', () => {
     const {getByTestId} = render(<App />)
     expect(getByTestId('break-label')).toBeVisible()
@@ -178,8 +179,17 @@ describe('Pomodoro app', () => {
     expect(getByTestId('time-left')).toHaveTextContent('24:58')
   })
 
-  // test('User Story #22: When a session countdown reaches zero (NOTE: timer MUST reach 00:00), and a new countdown begins, the element with the id of timer-label should display a string indicating a break has begun.', () => {})
-  //
+  // test('User Story #22: When a session countdown reaches zero (NOTE: timer MUST reach 00:00), and a new countdown begins, the element with the id of timer-label should display a string indicating a break has begun.', () => {
+  //   jest.useFakeTimers();
+  //   const {getByTestId} = render(<App />)
+  //   getByTestId.setTimeLeft(1)
+  //   fireEvent.click(getByTestId('start_stop'))
+  // // TODO fix jest timer mocks
+  //   act(() => {jest.advanceTimersByTime(1000)});
+  //   expect(getByTestId('time-left')).toHaveTextContent('00:00')
+  //   jest.useRealTimers()
+  // })
+
   // test('User Story #23: When a session countdown reaches zero (NOTE: timer MUST reach 00:00), a new break countdown should begin, counting down from the value currently displayed in the id="break-length" element.', () => {})
   //
   // test('User Story #24: When a break countdown reaches zero (NOTE: timer MUST reach 00:00), and a new countdown begins, the element with the id of timer-label should display a string indicating a session has begun.', () => {})
