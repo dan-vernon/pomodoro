@@ -27,6 +27,7 @@ function App() {
   useEffect(() => {
     if (sessionLength >= 3600) setSessionLength(3600)
     if (sessionLength <= 0) setSessionLength(0)
+    if (!timerRunning && !session.started) setTimeLeft(sessionLength)
   }, [sessionLength])
 
   return(
