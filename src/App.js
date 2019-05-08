@@ -49,6 +49,12 @@ function useInterval(callback) {
 useInterval(() => {
   if (timerRunning) setTimeLeft(timeLeft - 1)})
 
+  function reset() {
+  setSession({started: false})
+  toggleTimer(false)
+  setBreakLength(300)
+  setSessionLength(1500)
+}
 
   return(
     <Container >
@@ -72,7 +78,9 @@ useInterval(() => {
         <Timer timeLeft={timeLeft} running={timerRunning} />
       </Row>
       <Row>
-        <ControlButtons handleStartStop={() => toggleTimer(!timerRunning)} />
+        <ControlButtons
+          handleStartStop={() => toggleTimer(!timerRunning)}
+          handleReset={reset} />
       </Row>
     </Container>
   );

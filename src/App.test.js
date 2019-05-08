@@ -73,7 +73,18 @@ describe('Pomodoro app', () => {
     expect(getByTestId('reset')).toBeVisible()
 })
 
-  // test('User Story #11: When I click the element with the id of reset, any running timer should be stopped, the value within id="break-length" should return to 5, the value within id="session-length" should return to 25, and the element with id="time-left" should reset to its default state.', () => {})
+  test('User Story #11: When I click the element with the id of reset, any running timer should be stopped, the value within id="break-length" should return to 5, the value within id="session-length" should return to 25, and the element with id="time-left" should reset to its default state.', () => {
+    const {getByTestId} = render(<App />)
+    fireEvent.click(getByTestId('break-decrement'))
+    fireEvent.click(getByTestId('session-increment'))
+    fireEvent.click(getByTestId('start_stop'))
+    act(() => {jest.advanceTimersByTime(1000)});
+    act(() => {jest.advanceTimersByTime(1000)});
+    fireEvent.click(getByTestId('reset'))
+    expect(getByTestId('break-length')).toHaveTextContent('5:00')
+    expect(getByTestId('session-length')).toHaveTextContent('25:00')
+    expect(getByTestId('time-left')).toHaveTextContent('25:00')
+  })
   //
   test('User Story #12: When I click the element with the id of break-decrement, the value within id="break-length" decrements by a value of 1, and I can see the updated value.', () => {
     const {getByTestId} = render(<App />)

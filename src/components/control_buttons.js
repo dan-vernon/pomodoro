@@ -7,7 +7,7 @@ export default (props) => {
       <Button variant="primary" data-testid="start_stop" onClick={props.handleStartStop}>
       Start/Stop
       </Button>
-      <Button variant="secondary" data-testid="reset">
+      <Button variant="secondary" data-testid="reset" onClick={props.handleReset}>
       Reset
       </Button>
     </div>
