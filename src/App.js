@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './App.css';
 import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, ProgressBar, Row } from 'react-bootstrap';
 
 
 import Period from './components/period';
@@ -14,6 +15,8 @@ function App() {
   const [timerRunning, toggleTimer] = useState(false)
   const [session, setSession] = useState({started: false, breaktime: false})
   const [timeLeft, setTimeLeft] = useState(1500)
+  const [progress, setProgress] = useState(0)
+  const [speed, setSpeed] = useState(1000)
 
 // monitor timerRunning and start session when true
   useEffect(() => {
@@ -63,8 +66,7 @@ function useInterval(callback) {
     function tick() {
       savedCallback.current();
     }
-
-    let id = setInterval(tick, 1);
+    let id = setInterval(tick, speed);
     return () => clearInterval(id);
   });
 }
@@ -73,6 +75,8 @@ function useInterval(callback) {
 useInterval(() => {
   if (timerRunning && timeLeft > 0 && session.started) {
     setTimeLeft(timeLeft - 1)
+    // update progress bar on tick
+    session.breaktime ? setProgress(((breakLength-timeLeft)/breakLength)*100) : setProgress(((sessionLength-timeLeft)/sessionLength)*100)
   }
 })
 
@@ -104,12 +108,22 @@ useInterval(() => {
       </Row>
       <Row>
         <Timer timeLeft={timeLeft} running={timerRunning} />
+        <Col>
+        <label value={speed} for="slider">Speed {100-(speed/10)}</label>
+        <br />
+        <input id="slider" type="range" min="0" max="100" value={100-(speed/10)} onChange={(e) => setSpeed((100-e.target.value)*10)} />
+          <ControlButtons
+            handleStartStop={() => toggleTimer(!timerRunning)}
+            handleReset={reset} />
+
+        </Col>
       </Row>
       <Row>
-        <ControlButtons
-          handleStartStop={() => toggleTimer(!timerRunning)}
-          handleReset={reset} />
+        <div style={{"width":"100%"}}>
+          <ProgressBar now={progress} />
+        </div>
       </Row>
+
     </Container>
   );
 }
