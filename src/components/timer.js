@@ -16,8 +16,8 @@ class Timer extends React.Component {
     // const seconds = this.state.timeLeft % 60 < 10 ? `0${this.state.timeLeft % 60}` : this.state.timeLeft  % 60
     return (
       <div>
-        <div data-testid="timer-label">
-          Time remaining
+        <div id="timer-label" data-testid="timer-label">
+          {this.props.breaktime ? "Breaktime!" : "Time remaining"}
         </div>
         <div data-testid="time-left">
           {minutes}:{seconds}

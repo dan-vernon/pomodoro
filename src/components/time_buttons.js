@@ -9,13 +9,17 @@ export default (props) => {
       data-testid={`${props.period}-increment`}
       onClick={props.handleIncrement}
       value="+"
-      />
+      >
+      +
+      </Button>
       <Button
       variant="danger"
       data-testid={`${props.period}-decrement`}
       onClick={props.handleDecrement}
       value="-"
-      />
+      >
+      -
+      </Button>
       </div>
   )
 }

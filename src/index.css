@@ -14,12 +14,12 @@ code {
 }
 
 .buttons-container > * {
-  margin: 16px;
-  font-size: 2em
+  margin: 8px;
+  font-size: 1rem
 }
 
 
 .time-buttons > * {
-  width: 64px;
-  border-radius: 9999px;
+  min-width: 48px;
+  border-radius: 4px;
 }
