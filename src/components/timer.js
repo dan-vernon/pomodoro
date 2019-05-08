@@ -1,4 +1,5 @@
 import React from 'react';
+import { Card } from 'react-bootstrap';
 
 class Timer extends React.Component {
   // constructor(props) {
@@ -22,6 +23,21 @@ class Timer extends React.Component {
         <div data-testid="time-left">
           {minutes}:{seconds}
         </div>
+      <div className="timer p-3">
+        <Card className="text-center">
+          <Card.Header>
+            <div id="timer-label"up data-testid="timer-label">
+              {this.props.breaktime ? "Breaktime!" : "Time remaining"}
+            </div>
+          </Card.Header>
+          <Card.Body>
+            <Card.Text>
+              <div data-testid="time-left">
+                {minutes}:{seconds}
+              </div>
+            </Card.Text>
+          </Card.Body>
+        </Card>
       </div>
     )
   }
