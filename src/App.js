@@ -102,7 +102,9 @@ useInterval(() => {
         </Col>
 
         <Col>
-          <Timer timeLeft={timeLeft} running={timerRunning} breaktime={session.breaktime} />
+          <label value={speed} for="slider">Speed {100-(speed/10)}</label>
+          <br />
+          <input id="slider" type="range" min="0" max="100" value={100-(speed/10)} onChange={(e) => setSpeed((100-e.target.value)*10)} />
         </Col>
 
       </Row>
@@ -124,12 +126,6 @@ useInterval(() => {
         </Col>
 
         <Col>
-        <label value={speed} for="slider">Speed {100-(speed/10)}</label>
-        <br />
-        <input id="slider" type="range" min="0" max="100" value={100-(speed/10)} onChange={(e) => setSpeed((100-e.target.value)*10)} />
-          <ControlButtons
-            handleStartStop={() => toggleTimer(!timerRunning)}
-            handleReset={reset} />
 
         </Col>
       </Row>
@@ -138,7 +134,19 @@ useInterval(() => {
           <ProgressBar now={progress} />
         </div>
       </Row>
+      <Row>
+      <Timer timeLeft={timeLeft} running={timerRunning} breaktime={session.breaktime} />
+      </Row>
+      <Row>
+      <Col />
+      <Col>
+        <ControlButtons
+        handleStartStop={() => toggleTimer(!timerRunning)}
+        handleReset={reset} />
 
+        </Col>
+        <Col />
+      </Row>
     </Container>
   );
 }
