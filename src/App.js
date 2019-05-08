@@ -39,20 +39,24 @@ function App() {
 
 // start break
   useEffect(() => {
-    if (timeLeft === 0 && !session.breaktime) {
+    if (timerRunning && timeLeft === 0 && !session.breaktime) {
       setTimeLeft(breakLength)
       console.log('breaktime')
       setSession({...session, breaktime: true})
+      document.getElementById('root').insertAdjacentHTML('afterbegin',
+    "<audio src='https://freesound.org/data/previews/320/320652_5260872-lq.mp3' id='sessionAudio' autoplay />")
     }
   }, [timeLeft])
 
   // declare end of Pomodoro
   useEffect(() => {
     if (timeLeft === 0 && session.breaktime) {
-      console.log('Let the games begin!')
-      console.log(`${timeLeft} ${session.breaktime}`)
       console.log('Pomodoro finished')
+      document.getElementById('root').insertAdjacentHTML('afterbegin',
+    "<audio src='https://freesound.org/data/previews/171/171671_2437358-lq.mp3' id='beep' autoplay />")
+    document.getElementById('timer-label').innerHTML="Get back to work!"
     }
+
   }, [timeLeft, session.breaktime])
 
 // hooks setInterval workaround
