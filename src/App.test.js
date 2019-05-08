@@ -62,11 +62,13 @@ describe('Pomodoro app', () => {
 
   test('User Story #9: I can see a clickable element with a corresponding id="start_stop".', () => {
     const {getByTestId} = render(<App />)
+    fireEvent.click(getByTestId('start_stop'))
     expect(getByTestId('start_stop')).toBeVisible()
 })
 
   test('User Story #10: I can see a clickable element with a corresponding id="reset".', () => {
     const {getByTestId} = render(<App />)
+    fireEvent.click(getByTestId('reset'))
     expect(getByTestId('reset')).toBeVisible()
 })
 
