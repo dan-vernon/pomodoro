@@ -64,7 +64,7 @@ function useInterval(callback) {
       savedCallback.current();
     }
 
-    let id = setInterval(tick, 1000);
+    let id = setInterval(tick, 1);
     return () => clearInterval(id);
   });
 }
@@ -86,16 +86,16 @@ useInterval(() => {
         <Period name="break" length={breakLength} />
         <TimeButtons
           period="break"
-          handleIncrement={() => setBreakLength(breakLength + 60)}
-          handleDecrement={() => setBreakLength(breakLength - 60)}
+          handleIncrement={() => setBreakLength(breakLength + 300)}
+          handleDecrement={() => setBreakLength(breakLength - 300)}
           />
       </Row>
       <Row>
         <Period name="session" length={sessionLength} />
         <TimeButtons
           period="session"
-          handleIncrement={() => setSessionLength(sessionLength + 60)}
-          handleDecrement={() => setSessionLength(sessionLength - 60)}
+          handleIncrement={() => setSessionLength(sessionLength + 300)}
+          handleDecrement={() => setSessionLength(sessionLength - 300)}
             />
       </Row>
       <Row>
