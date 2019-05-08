@@ -49,7 +49,7 @@ function App() {
             />
       </Row>
       <Row>
-        <Timer timeLeft={defaultTime} running={timerRunning} />
+        <Timer timeLeft={timeLeft} running={timerRunning} />
       </Row>
       <Row>
         <ControlButtons />
