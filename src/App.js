@@ -11,8 +11,10 @@ import Timer from './components/timer';
 function App() {
   const [breakLength, setBreakLength] = useState(300)
   const [sessionLength, setSessionLength] = useState(1500)
-  const [timerRunning, startTimer] = useState(false)
-  const defaultTime = 1500
+  const [timerRunning, toggleTimer] = useState(false)
+  const [session, setSession] = useState({started: false, duration: [sessionLength, breakLength]})
+  const [timeLeft, setTimeLeft] = useState(1500)
+
   useEffect(() => {
     if (timerRunning && !session.started) setSession(true)
   }, [timerRunning])
