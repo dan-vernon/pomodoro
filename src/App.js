@@ -16,7 +16,7 @@ function App() {
   const [timeLeft, setTimeLeft] = useState(1500)
 
   useEffect(() => {
-    if (timerRunning && !session.started) setSession(true)
+    if (timerRunning && !session.started) setSession({...session, started: true})
   }, [timerRunning])
 
   useEffect(() => {
@@ -50,7 +50,7 @@ useInterval(() => {
   if (timerRunning) setTimeLeft(timeLeft - 1)})
 
   function reset() {
-  setSession({started: false})
+  setSession({...session, started: false, breaktime: false})
   toggleTimer(false)
   setBreakLength(300)
   setSessionLength(1500)
