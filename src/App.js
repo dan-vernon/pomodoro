@@ -95,23 +95,35 @@ useInterval(() => {
   return(
     <Container >
       <Row>
-        <Period name="break" length={breakLength} />
-        <TimeButtons
-          period="break"
-          handleIncrement={() => setBreakLength(breakLength + 300)}
-          handleDecrement={() => setBreakLength(breakLength - 300)}
+        <Col>
+          <Period name="session" length={sessionLength} />
+        </Col>
+        <Col>
+          <Period name="break" length={breakLength} />
+        </Col>
+
+        <Col>
+          <Timer timeLeft={timeLeft} running={timerRunning} breaktime={session.breaktime} />
+        </Col>
+
+      </Row>
+      <Row>
+        <Col>
+                  <TimeButtons
+            period="session"
+            handleIncrement={() => setSessionLength(sessionLength + 60)}
+            handleDecrement={() => setSessionLength(sessionLength - 60)}
+              />
+
+        </Col>
+                <Col>
+                  <TimeButtons
+            period="break"
+            handleIncrement={() => setBreakLength(breakLength + 60)}
+            handleDecrement={() => setBreakLength(breakLength - 60)}
           />
-      </Row>
-      <Row>
-        <Period name="session" length={sessionLength} />
-        <TimeButtons
-          period="session"
-          handleIncrement={() => setSessionLength(sessionLength + 300)}
-          handleDecrement={() => setSessionLength(sessionLength - 300)}
-            />
-      </Row>
-      <Row>
-        <Timer timeLeft={timeLeft} running={timerRunning} />
+        </Col>
+
         <Col>
         <label value={speed} for="slider">Speed {100-(speed/10)}</label>
         <br />
