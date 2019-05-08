@@ -71,7 +71,10 @@ function useInterval(callback) {
 
 // start timer if conditions met
 useInterval(() => {
-  if (timerRunning) setTimeLeft(timeLeft - 1)})
+  if (timerRunning && timeLeft > 0 && session.started) {
+    setTimeLeft(timeLeft - 1)
+  }
+})
 
   function reset() {
   setSession({...session, started: false, breaktime: false})
