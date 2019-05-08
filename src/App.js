@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './App.css';
 import { Col, Container, Row } from 'react-bootstrap';
 
@@ -29,6 +29,26 @@ function App() {
     if (sessionLength <= 0) setSessionLength(0)
     if (!timerRunning && !session.started) setTimeLeft(sessionLength)
   }, [sessionLength])
+
+function useInterval(callback) {
+  const savedCallback = useRef();
+  useEffect(() => {
+    savedCallback.current = callback;
+  });
+
+  useEffect(() => {
+    function tick() {
+      savedCallback.current();
+    }
+
+    let id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  });
+}
+
+useInterval(() => {
+  if (timerRunning) setTimeLeft(timeLeft - 1)})
+
 
   return(
     <Container >
