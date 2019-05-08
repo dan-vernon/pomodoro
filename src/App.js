@@ -13,6 +13,9 @@ function App() {
   const [sessionLength, setSessionLength] = useState(1500)
   const [timerRunning, startTimer] = useState(false)
   const defaultTime = 1500
+  useEffect(() => {
+    if (timerRunning && !session.started) setSession(true)
+  }, [timerRunning])
 
   useEffect(() => {
     if (breakLength >= 3600) setBreakLength(3600)
