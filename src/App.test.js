@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {act} from 'react-dom/test-utils';
 
 import { render, fireEvent } from 'react-testing-library';
 
 import App from './App';
 
-
+jest.useFakeTimers()
 
 describe('Pomodoro app', () => {
   test('User Story #1: I can see an element with id="break-label" that contains a string (e.g. "Break Length").', () => {
@@ -122,7 +123,16 @@ describe('Pomodoro app', () => {
     expect(getByTestId('session-length')).toHaveTextContent('60:00')
 })
 
-  // test('User Story #18: When I first click the element with id="start_stop", the timer should begin running from the value currently displayed in id="session-length", even if the value has been incremented or decremented from the original value of 25.', () => {})
+  test('User Story #18: When I first click the element with id="start_stop", the timer should begin running from the value currently displayed in id="session-length", even if the value has been incremented or decremented from the original value of 25.', () => {
+      const {getByTestId} = render(<App />)
+      fireEvent.click(getByTestId('session-increment'))
+      fireEvent.click(getByTestId('session-increment'))
+      expect(getByTestId('time-left')).toHaveTextContent('27:00')
+      fireEvent.click(getByTestId('start_stop'))
+      act(() => {jest.advanceTimersByTime(1000)});
+      fireEvent.click(getByTestId('start_stop'))
+      expect(getByTestId('time-left')).toHaveTextContent('26:59')
+  })
   //
   // test('User Story #19: If the timer is running, the element with the id of time-left should display the remaining time in mm:ss format (decrementing by a value of 1 and updating the display every 1000ms).', () => {})
   //
