@@ -40,13 +40,13 @@ describe('Pomodoro app', () => {
   test('User Story #5: I can see an element with a corresponding id="break-length", which by default (on load) displays a value of 5.', () => {
     const {getByTestId} = render(<App />)
     expect(getByTestId('break-length')).toBeVisible()
-    expect(getByTestId('break-length')).toHaveTextContent('5')
+    expect(getByTestId('break-length')).toHaveTextContent('5:00')
   })
 
   test('User Story #6: I can see an element with a corresponding id="session-length", which by default displays a value of 25.', () => {
     const {getByTestId} = render(<App />)
     expect(getByTestId('session-length')).toBeVisible()
-    expect(getByTestId('session-length')).toHaveTextContent('25')
+    expect(getByTestId('session-length')).toHaveTextContent('25:00')
   })
 
   test('User Story #7: I can see an element with a corresponding id="timer-label", that contains a string indicating a session is initialized (e.g. "Session").', () => {
