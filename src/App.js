@@ -35,7 +35,23 @@ function App() {
   }, [sessionLength])
 
 // start break
+  useEffect(() => {
+    if (timeLeft === 0 && !session.breaktime) {
+      setTimeLeft(breakLength)
+      console.log('breaktime')
+      setSession({...session, breaktime: true})
+    }
+  }, [timeLeft])
+
   // declare end of Pomodoro
+  useEffect(() => {
+    if (timeLeft === 0 && session.breaktime) {
+      console.log('Let the games begin!')
+      console.log(`${timeLeft} ${session.breaktime}`)
+      console.log('Pomodoro finished')
+    }
+  }, [timeLeft, session.breaktime])
+
 // hooks setInterval workaround
 function useInterval(callback) {
   const savedCallback = useRef();
