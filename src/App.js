@@ -72,7 +72,7 @@ useInterval(() => {
         <Timer timeLeft={timeLeft} running={timerRunning} />
       </Row>
       <Row>
-        <ControlButtons />
+        <ControlButtons handleStartStop={() => toggleTimer(!timerRunning)} />
       </Row>
     </Container>
   );
