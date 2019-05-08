@@ -78,6 +78,7 @@ useInterval(() => {
   toggleTimer(false)
   setBreakLength(300)
   setSessionLength(1500)
+  setTimeLeft(sessionLength)
 }
 
   return(
