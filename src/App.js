@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
-import './App.css';
+import { ReactComponent as Logo } from './logo.svg';
 import { Col, Container, ProgressBar, Row } from 'react-bootstrap';
+import './App.css';
 
 
 import Period from './components/period';
@@ -93,6 +94,9 @@ useInterval(() => {
 
   return(
     <Container >
+      <h1>Pomodoro</h1>
+      <Logo height='100px' width='100px'/>
+      <hr/ >
       <Row>
         <Col>
           <Period name="session" length={sessionLength} />
