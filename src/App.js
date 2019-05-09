@@ -106,9 +106,9 @@ useInterval(() => {
         </Col>
 
         <Col>
-          <label value={speed} for="slider">Speed {100-(speed/10)}</label>
+          <label value={speed} for="slider">Timewarp {1000-speed}x</label>
           <br />
-          <input id="slider" type="range" min="0" max="100" value={100-(speed/10)} onChange={(e) => setSpeed((100-e.target.value)*10)} />
+          <input id="slider" type="range" min="1" max="1000" value={1000-speed} onChange={(e) => setSpeed(1000-e.target.value)} />
         </Col>
 
       </Row>
