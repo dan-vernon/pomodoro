@@ -10,10 +10,6 @@ body {
   text-align: center;
   justify-content: center;
 }
-.container {
-  padding-top: 32px;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -31,7 +27,7 @@ code {
 }
 
 .timer {
-  font-size: 2em;
+  font-size: 1.5em;
   margin: 0 auto;
   min-width: 12em;
 }
